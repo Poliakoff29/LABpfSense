@@ -145,8 +145,8 @@ Pare-feu & routage · NAT/PAT · haute disponibilité réseau (Multi-WAN) · QoS
 
 ## Voir aussi
 
-- [`laboratoire-reseau-entreprise.md`](./laboratoire-reseau-entreprise.md) — vue d'ensemble de l'architecture complète du lab
-- [`lab-cybersecurite-guide.md`](./lab-cybersecurite-guide.md) — volet attaque/défense (DoS, brute-force SSH, injection SQL/WAF, SIEM Wazuh)
+- [`laboratoire-reseau-entreprise.md`](https://github.com/Poliakoff29/HomeLAB/blob/main/ArchitectureLAB.md) — vue d'ensemble de l'architecture complète du lab
+- [`lab-cybersecurite-guide.md`](https://github.com/Poliakoff29/LabCybersecurity) — volet attaque/défense (DoS, brute-force SSH, injection SQL/WAF, SIEM Wazuh)
 
 ---
 

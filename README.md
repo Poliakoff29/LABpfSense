@@ -36,7 +36,7 @@ Ce projet fait suite à mon [lab d'attaque/défense pfSense](./lab-cybersecurite
 
 Avant de toucher à quoi que ce soit : exporter la configuration (*Diagnostics ▸ Backup & Restore*) et vérifier l'état des mises à jour (*System ▸ Update*). Un filet de sécurité indispensable avant d'enchaîner des changements sur un pare-feu en service — une config qui casse se restaure en un clic plutôt qu'en reconfigurant tout à la main.
 
-![Écran de sauvegarde de la configuration pfSense](pfsense-backup-config-screen.png)
+
 
 ## 2. Alias & IP virtuelles
 
@@ -46,7 +46,11 @@ Avant de toucher à quoi que ce soit : exporter la configuration (*Diagnostics �
 
 Mis en pratique : un alias `LAN_Servers` regroupant les machines internes, un alias de ports `Web_Ports`, et une VIP de type IP Alias sur le WAN — réutilisée directement à l'étape suivante (NAT).
 
-![Liste des alias et de l'IP virtuelle configurés](pfsense-alias-list.png)
+
+<img width="1210" height="529" alt="pfsense-alias-list" src="https://github.com/user-attachments/assets/fc8feac8-60e2-4771-b86f-0426695c1c96" />
+
+<img width="1224" height="553" alt="pfsense-virtual-ip" src="https://github.com/user-attachments/assets/588c242a-4fb2-4da4-9282-4cf5a5d646fd" />
+
 
 ## 3. NAT & Port Forwarding
 
@@ -62,7 +66,8 @@ Les connexions grand public ont une IP publique qui change régulièrement. Le *
 
 > Point technique rencontré : avec une connexion en double NAT, pfSense ne voit pas directement sa vraie IP publique sur son interface WAN — le client DDNS a été configuré pour utiliser un service de détection d'IP externe plutôt que l'IP brute de l'interface.
 
-![Statut du client DDNS sur pfSense, à jour](pfsense-ddns-status.png)
+<img width="1272" height="624" alt="DDNS" src="https://github.com/user-attachments/assets/fc6464e8-c6e1-46f2-8dd8-53eee50ffa59" />
+
 
 ## 5. Multi-WAN (failover + load balancing)
 
@@ -80,7 +85,11 @@ Deux mécanismes distincts : les **Limiters** plafonnent un débit strict (indé
 
 Mis en pratique : un Limiter à 1 Mbit/s appliqué à Ubuntu Server, validé par un test de débit avant/après — passage de plusieurs dizaines de Mbit/s à un plafond net autour de 1 Mbit/s.
 
-![Test de débit avant et après l'application du limiteur](speedtest-after-limiter.png)
+<img width="862" height="660" alt="avant" src="https://github.com/user-attachments/assets/de006ff2-f748-4fb3-b050-848f11b1ab31" />
+
+<img width="684" height="688" alt="apres" src="https://github.com/user-attachments/assets/376b610d-c144-4faa-bb35-03aacce50e34" />
+
+
 
 ## 7. Squid & SquidGuard
 
@@ -112,19 +121,21 @@ Négociation en deux phases : la Phase 1 authentifie et chiffre la communication
 
 Filtrage réseau **sans configuration côté client** (contrairement à Squid) : pfBlockerNG bloque au niveau du pare-feu et du DNS, à partir de listes de réputation IP (sources connues de malware, botnets) et de listes DNS (domaines publicitaires, de tracking, malveillants), avec en complément la possibilité de bloquer par pays entier (GeoIP) — utile pour couper tout le trafic en provenance de régions sans activité légitime pour l'entreprise.
 
-![Tableau de bord pfBlockerNG avec les listes actives](pfblockerng-dashboard.png)
+<img width="1078" height="423" alt="Capture d&#39;écran 2026-11-07 200227" src="https://github.com/user-attachments/assets/80af39f1-eb4a-49a2-92ca-772027e3dc0f" />
+
 
 ## 11. ntopng
 
 Outil de visibilité réseau en temps réel : contrairement à Wazuh (événements de sécurité) ou Zabbix (disponibilité/ressources), ntopng se concentre sur l'**analyse du trafic lui-même** — qui communique avec qui, quels protocoles, quels volumes, les principaux consommateurs de bande passante (« top talkers »). Un allié précieux pour diagnostiquer un ralentissement réseau ou repérer un comportement anormal.
 
-![Tableau de bord ntopng montrant le trafic en temps réel](ntopng-traffic-dashboard.png)
+<img width="1365" height="664" alt="Capture d&#39;écran 2026-11-07 195839" src="https://github.com/user-attachments/assets/1c1b4a0e-4b07-4bcc-92a9-2a416ab66441" />
 
 ## 12. Test de charge (Stress Test)
 
 Validation du comportement de l'ensemble sous contrainte : génération d'un trafic volumineux (outils de type hping3/iperf3) contre les services exposés, pour observer la tenue de la table d'états de pfSense, la réaction des règles de pare-feu et des Limiters sous charge, ainsi que la consommation CPU/mémoire du pare-feu lui-même — une vérification que la configuration tient la route au-delà d'un test ponctuel isolé.
 
-![Résultats du test de charge et comportement de pfSense sous contrainte](stress-test-results.png)
+<img width="1298" height="552" alt="Capture d&#39;écran 2026-11-07 195550" src="https://github.com/user-attachments/assets/ccf6153b-ce10-44be-be92-600ce8a7fb5e" />
+
 
 ---
 

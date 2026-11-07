@@ -2,7 +2,7 @@
 
 > VPN, haute disponibilité réseau, filtrage web, threat intelligence et supervision du trafic — un pare-feu open-source poussé dans ses retranchements pour couvrir ce qu'une PME attend d'une solution réseau d'entreprise, sans le budget d'un NGFW propriétaire.
 
-Ce projet fait suite à mon [lab d'attaque/défense pfSense](./lab-cybersecurite-guide.md) : une fois le pare-feu éprouvé contre des attaques réelles, j'ai voulu explorer l'ensemble de ses fonctionnalités de niveau entreprise — celles qu'on attend concrètement d'un poste réseau ou SOC N2.
+Ce projet fait suite à mon [lab d'attaque/défense pfSense](https://github.com/Poliakoff29/LabCybersecurity) : une fois le pare-feu éprouvé contre des attaques réelles, j'ai voulu explorer l'ensemble de ses fonctionnalités de niveau entreprise — celles qu'on attend concrètement d'un poste réseau ou SOC N2.
 
 ## Architecture
 

@@ -36,6 +36,7 @@ Ce projet fait suite à mon [lab d'attaque/défense pfSense](https://github.com/
 
 Avant de toucher à quoi que ce soit : exporter la configuration (*Diagnostics ▸ Backup & Restore*) et vérifier l'état des mises à jour (*System ▸ Update*). Un filet de sécurité indispensable avant d'enchaîner des changements sur un pare-feu en service — une config qui casse se restaure en un clic plutôt qu'en reconfigurant tout à la main.
 
+<img width="1193" height="520" alt="pfsense-backup-config-screen" src="https://github.com/user-attachments/assets/06ce4bb9-5910-4c64-a486-a9dff340d2ee" />
 
 
 ## 2. Alias & IP virtuelles
@@ -77,7 +78,7 @@ Brancher deux accès Internet sur pfSense permet soit de **basculer automatiquem
 
 La détection de panne et le retrait/réintégration automatique d'une passerelle sont gérés par `dpinger`, qui surveille chaque gateway en continu (ping régulier) et bascule en quelques secondes en cas de coupure.
 
-![Basculement automatique détecté sur Status ▸ Gateways](pfsense-multiwan-failover.png)
+<img width="1280" height="572" alt="Capture d&#39;écran 2026-11-08 193201" src="https://github.com/user-attachments/assets/ea5bfef6-d47e-46de-b9fb-fd126d040f33" />
 
 ## 6. Traffic Shaper (QoS)
 
@@ -99,7 +100,8 @@ Configuré en **mode proxy explicite** (le client configure l'adresse du proxy) 
 
 > Limite technique importante documentée : ni Squid ni SquidGuard ne peuvent identifier un **service applicatif précis** (ex. YouTube) de façon fiable — ce niveau de classification ("App-ID") est une fonctionnalité propre aux pare-feux nouvelle génération (Palo Alto, Fortinet...), qui inspectent les métadonnées TLS plutôt que le simple port/IP.
 
-![Page de blocage SquidGuard sur un domaine filtré](squidguard-blocked-page.png)
+<img width="1078" height="423" alt="Capture d&#39;écran 2026-11-07 200227" src="https://github.com/user-attachments/assets/2cff3d07-83d6-41c9-809b-7f2c71d9d7b9" />
+
 
 ## 8. OpenVPN
 

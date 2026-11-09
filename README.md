@@ -59,7 +59,7 @@ Le NAT sortant masque les machines du LAN derrière l'IP WAN. Le **Port Forwardi
 
 Deux redirections mises en place pour démontrer l'intérêt des VIP : un service web (port 8080 → Ubuntu:80) sur l'IP WAN principale, et un accès RDP (port 3389) sur la VIP dédiée vers Windows 10 — deux services distincts, chacun sur sa propre IP publique, sans collision de ports.
 
-![Règle de redirection de port testée avec succès](nat-port-forward-web-test.png)
+<img width="1356" height="458" alt="nat" src="https://github.com/user-attachments/assets/1a53ab3f-6c92-4e30-98b8-c047623834d7" />
 
 ## 4. DDNS
 
@@ -109,7 +109,8 @@ VPN d'accès distant (« road warrior ») : un poste externe se connecte à pfSe
 
 Configuré via l'assistant OpenVPN de pfSense (génération de l'autorité de certification, du certificat serveur, définition du réseau de tunnel et du réseau local accessible), avec export de la configuration client via le package OpenVPN Client Export, import sur le poste distant et validation de l'accès aux ressources du LAN à travers le tunnel.
 
-![Client OpenVPN connecté avec une IP de tunnel attribuée](openvpn-client-connected.png)
+<img width="925" height="264" alt="Capture d&#39;écran 2026-11-09 105940" src="https://github.com/user-attachments/assets/ab234dfe-9212-4b7c-a368-2c8c4e20031b" />
+
 
 ## 9. IPsec (site-à-site)
 
@@ -117,7 +118,8 @@ Contrairement à OpenVPN (accès distant pour un utilisateur), IPsec en mode sit
 
 Négociation en deux phases : la Phase 1 authentifie et chiffre la communication entre les deux pare-feux, la Phase 2 définit les sous-réseaux autorisés à communiquer à travers le tunnel (le « domaine de chiffrement »).
 
-![Tunnel IPsec établi, statut actif](ipsec-tunnel-status.png)
+<img width="916" height="323" alt="Capture d&#39;écran 2026-11-09 104951" src="https://github.com/user-attachments/assets/426ca48c-04c3-4e0a-9f45-105cf5cbb5a4" />
+
 
 ## 10. pfBlockerNG
 
